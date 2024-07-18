@@ -13,10 +13,19 @@ services:
     depends_on:
       - db
       - test-db
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: /home/node/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
 
   db:
     image: postgres
-    container_name: ${PROJECT_NAME}-db
+    container_name: ${DATABASE_HOST}
     restart: unless-stopped
     env_file: .env
     environment:
