@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"ts-node-dev --poll --exit-child --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts\" \"prisma generate --watch\""
+    "dev": "concurrently \"ts-node-dev --poll --exit-child --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts\" \"prisma generate --watch\"",
+    "migration": "cross-env DATABASE_HOST=localhost prisma migrate dev"
   },
   "keywords": [],
   "author": "",
